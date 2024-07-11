@@ -1,4 +1,4 @@
-### **Interview-APP**
+### **Interview-App**
 We are excited to introduce you to our latest project, the **Interview-App**. This innovative application is designed to enhance your experience by integrating powerful search functionalities and robust user profile management. Below, we provide an overview of the key features that make Interview-App a must-have tool for your needs.
 
 ### **Pixabay Image Search Integration**
