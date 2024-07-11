@@ -27,7 +27,7 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
-            'password' => 'required|string|min:1|confirmed',
+            'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required|same:password',
         ]);
         if ($validator->fails()) {
@@ -101,11 +101,15 @@ class UserController extends Controller
             return response()->json(['error' => 'User not authenticated'], 401);
         }
         $validatedData = $request->validate([
-            'name' => 'nullable|string|max:255',
-            'email' => 'nullable|string|email',
-            'profile_picture' => 'nullable|image',
-            'password' => 'nullable',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email',
+            'profile_picture' => 'nullable|image|max:3072',
         ]);
+        if ($request->filled('password')) {
+            $request->validate([
+                'password' => 'required|string|min:8',
+            ]);
+        }
         // dd($validatedData);
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
@@ -117,12 +121,12 @@ class UserController extends Controller
             $image = Storage::disk('public')->put('/', $request->file('profile_picture'));
             $user->profile_picture = $image;
         }
-        if (! empty($validatedData['password'])) {
-            $user->password = Hash::make($validatedData['password']);
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
         }
         // dd($user);
         $user->save();
 
-        return to_route('profile');
+        return redirect()->route('profile')->with('success', 'User Profile has been updated successfully.');
     }
 }

@@ -18,6 +18,23 @@
                     </div>
                     <div class="w-full lg:w-3/4 xl:w-3/4 p-4">
                         <div class="bg-white rounded shadow-md p-4 pt-6">
+                            @if (session('success'))
+                                <div
+                                    class="bg-[#dcfce7] text-md border border-[#15803d] text-[#15803d] px-2 py-2 rounded relative mb-4">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            @if ($errors->any())
+                                <div
+                                    class="bg-red-100 text-md border border-red-800 text-red-800 px-2 py-2 rounded relative mb-4">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-lg">Profile</h3>
                                 <button class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800"
@@ -90,62 +107,62 @@
                                 <div class="relative">
                                     <input type="password" id="password" name="password"
                                         class="w-full pl-4 pr-4 py-2 text-sm text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent" ">
-                                                                                                                                                                                </div>
-                                                                                                                                                                                <p class="text-gray-500 text-xs mt-1">Leave blank to keep current password</p>
-                                                                                                                                                                            </div>
+                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                    <p class="text-gray-500 text-xs mt-1">Leave blank to keep current password</p>
+                                                                                                                                                                                                                </div>
 
-                                                                                                                                                                            <div class="flex justify-end mt-2">
-                                                                                                                                                                                <button type="button"
-                                                                                                                                                                                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded mr-2"
-                                                                                                                                                                                    onclick="closeModal()">Cancel</button>
-                                                                                                                                                                                <button type="submit"
-                                                                                                                                                                                    class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Save</button>
-                                                                                                                                                                            </div>
-                                                                                                                                                                        </form>
-                                                                                                                                                                    </div>
-                                                                                                                                                                </div>
+                                                                                                                                                                                                                <div class="flex justify-end mt-2">
+                                                                                                                                                                                                                    <button type="button"
+                                                                                                                                                                                                                        class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded mr-2"
+                                                                                                                                                                                                                        onclick="closeModal()">Cancel</button>
+                                                                                                                                                                                                                    <button type="submit"
+                                                                                                                                                                                                                        class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                            </form>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                    </div>
 
 
-                                                                                                                                                            </div>
-                                                                                                                                                        </section>
-                                                                                                                                                    </section>
-                                                                                                                                                    <script>
-                                                                                                                                                        $(document).ready(function() {
-                                                                                                                                                            $('#update-profile-form').submit(function(event) {
-                                                                                                                                                                event.preventDefault();
-                                                                                                                                                                var formData = new FormData(this);
-                                                                                                                                                                $.ajax({
-                                                                                                                                                                    type: 'POST',
-                                                                                                                                                                    url: '{{ route('profile.update') }}',
-                                                                                                                                                                    data: formData,
-                                                                                                                                                                    contentType: false,
-                                                                                                                                                                    processData: false,
-                                                                                                                                                                    success: function(data) {
-                                                                                                                                                                        if (data.success) {
-                                                                                                                                                                            closeModal();
-                                                                                                                                                                            location.reload();
-                                                                                                                                                                        } else {
-                                                                                                                                                                            alert('Error updating profile');
-                                                                                                                                                                        }
-                                                                                                                                                                    },
-                                                                                                                                                                    error: function(xhr, status, error) {
-                                                                                                                                                                        alert('Error updating profile: ' + error);
-                                                                                                                                                                    }
-                                                                                                                                                                });
-                                                                                                                                                            });
-                                                                                                                                                        });
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </section>
+                                                                                                                                                                                        </section>
+                                                                                                                                                                                        <script>
+                                                                                                                                                                                            $(document).ready(function() {
+                                                                                                                                                                                                $('#update-profile-form').submit(function(event) {
+                                                                                                                                                                                                    event.preventDefault();
+                                                                                                                                                                                                    var formData = new FormData(this);
+                                                                                                                                                                                                    $.ajax({
+                                                                                                                                                                                                        type: 'POST',
+                                                                                                                                                                                                        url: '{{ route('profile.update') }}',
+                                                                                                                                                                                                        data: formData,
+                                                                                                                                                                                                        contentType: false,
+                                                                                                                                                                                                        processData: false,
+                                                                                                                                                                                                        success: function(data) {
+                                                                                                                                                                                                            if (data.success) {
+                                                                                                                                                                                                                closeModal();
+                                                                                                                                                                                                                location.reload();
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                alert('Error updating profile');
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        },
+                                                                                                                                                                                                        error: function(xhr, status, error) {
+                                                                                                                                                                                                            alert('Error updating profile: ' + error);
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    });
+                                                                                                                                                                                                });
+                                                                                                                                                                                            });
 
-                                                                                                                                                        function closeModal() {
-                                                                                                                                                            $('#editModal').addClass('hidden');
-                                                                                                                                                        }
-                                                                                                                                                    </script>
-                                                                                                                                                    <script>
-                                                                                                                                                        function openModal() {
-                                                                                                                                                            document.getElementById('editModal').classList.remove('hidden');
-                                                                                                                                                        }
+                                                                                                                                                                                            function closeModal() {
+                                                                                                                                                                                                $('#editModal').addClass('hidden');
+                                                                                                                                                                                            }
+                                                                                                                                                                                        </script>
+                                                                                                                                                                                        <script>
+                                                                                                                                                                                            function openModal() {
+                                                                                                                                                                                                document.getElementById('editModal').classList.remove('hidden');
+                                                                                                                                                                                            }
 
-                                                                                                                                                        function closeModal() {
-                                                                                                                                                            document.getElementById('editModal').classList.add('hidden');
-                                                                                                                                                        }
-                                                                                                                                                    </script>
+                                                                                                                                                                                            function closeModal() {
+                                                                                                                                                                                                document.getElementById('editModal').classList.add('hidden');
+                                                                                                                                                                                            }
+                                                                                                                                                                                        </script>
 @endsection
