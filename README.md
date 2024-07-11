@@ -27,7 +27,7 @@ Security and ease of access are paramount in today's digital age. Interview-App 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/username/repository.git
+    [git clone https://github.com/username/repository.git](https://github.com/ashwaniiraii/interview-app.git)
     ```
 
 2. Navigate to the project directory:
