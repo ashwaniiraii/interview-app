@@ -18,7 +18,8 @@
                             class="w-28 h-28 rounded-full" />
                         <div class="mt-5">
                             <h4 class="text-lg text-white font-bold">{{ auth()->user()->name }}</h4>
-                            <p class="text-xs text-gray-300 mt-1">{{ auth()->user()->email }}</p>
+                            <p class="text-xs text-gray-300 mt-1 mb-2">{{ auth()->user()->email }}</p>
+                            <span class="text-sm px-3 rounded py-1 bg-gray-300">{{ auth()->user()->department }}</span>
                         </div>
                     </div>
                 </div>

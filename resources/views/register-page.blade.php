@@ -1,7 +1,7 @@
 @extends('layout.comman-layout')
 @section('work')
-    <div class="flex flex-col justify-center font-[sans-serif] text-[#333] sm:h-screen p-4 shadow-xl">
-        <div class="max-w-md w-full mx-auto border border-gray-300 rounded-md p-6">
+    <div class="flex flex-col justify-center font-[sans-serif] text-[#333] sm:h-screen md:h-full  p-4">
+        <div class="max-w-md w-full  mx-auto border border-gray-300 rounded-md p-6 shadow-xl">
             <form action="{{ route('RegisterUser') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="space-y-2">
@@ -28,6 +28,23 @@
                             class="bg-white border border-gray-300 w-full text-sm px-4 py-2 rounded-md outline-blue-500"
                             placeholder="Enter email" value="{{ old('email') }}" />
                         @error('email')
+                            <div class="bg-red-100 border border-red-500 text-red-700 px-1 py-1 rounded relative mt-1">
+                                <strong class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span class="text-xs">{{ $message }}</span>
+                                </strong>
+                            </div>
+                        @enderror
+                    </div>
+                    <div>
+                        <label class="text-sm mb-2 block">Department</label>
+                        <input name="department" type="text"
+                            class="bg-white border border-gray-300 w-full text-sm px-4 py-2 rounded-md outline-blue-500"
+                            placeholder="Enter department" value="{{ old('department') }}" />
+                        @error('department')
                             <div class="bg-red-100 border border-red-500 text-red-700 px-1 py-1 rounded relative mt-1">
                                 <strong class="flex items-center">
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

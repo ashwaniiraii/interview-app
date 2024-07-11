@@ -27,8 +27,9 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:5|confirmed',
             'password_confirmation' => 'required|same:password',
+            'department' => 'required|string|max:10',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -42,6 +43,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'department' => $request->department,
             'password' => Hash::make($request->password),
             'profile_picture' => $avatar ??= null,
         ]);
@@ -63,6 +65,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:8',
+
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -104,15 +107,17 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email',
             'profile_picture' => 'nullable|image|max:3072',
+            'department' => 'required|string|max:50',
         ]);
         if ($request->filled('password')) {
             $request->validate([
-                'password' => 'required|string|min:8',
+                'password' => 'required|string|min:5',
             ]);
         }
         // dd($validatedData);
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
+        $user->department = $validatedData['department'];
 
         if ($request->hasFile('profile_picture')) {
             if ($user->profile_picture) {
