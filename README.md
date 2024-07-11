@@ -14,6 +14,78 @@ We understand the importance of personalization and user control. With Interview
 Security and ease of access are paramount in today's digital age. Interview-App features a custom authentication system that allows you to securely log in and log out of your account. Our authentication process is designed to protect your personal information while providing a seamless login experience. Whether you're accessing the app from your computer or mobile device, you can trust that your data is secure.
 
 ### **Getting Started**
-### **Support
-Laravel 10.* (PHP >= 8.1)
+# Project Name
+
+[![Build Status](https://travis-ci.org/username/repository.svg?branch=master)](https://travis-ci.org/username/repository)
+
+## Requirements
+
+- **Laravel**: 10.*
+- **PHP**: >= 8.1
+
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/username/repository.git
+    ```
+
+2. Navigate to the project directory:
+    ```sh
+    cd repository
+    ```
+
+3. Install dependencies:
+    ```sh
+    composer install
+    ```
+
+4. Install guzzlehttp:
+    ```sh
+    composer require guzzlehttp/guzzle
+    ```
+
+
+5. Copy the example environment file and modify it according to your needs:
+    ```sh
+    cp .env.example .env
+    ```
+
+6. Generate an pixabay API_KEY and google API_KEY:
+    ```sh
+    paste in .env PIXABAY_API_KEY= and GOOGLE_API_KEY= and GOOGLE_SEARCH_ENGINE_ID=
+    ```
+
+7. Generate an application key:
+    ```sh
+    php artisan key:generate
+    ```
+
+8. Run the database migrations:
+    ```sh
+    php artisan migrate
+    ```
+
+9. Start the development server:
+    ```sh
+    php artisan serve
+    ```
+
+10. Usage:
+    ```sh
+   step-1 register new user step-2 login
+    ```
+
+## Usage
+
+Provide instructions on how to use your project.
+
+## Contributing
+
+Provide guidelines for contributing to your project.
+
+## License
+
+Specify the license under which your project is distributed.
+
 
