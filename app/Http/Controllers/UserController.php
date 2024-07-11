@@ -27,7 +27,7 @@ class UserController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|email|max:255|unique:users',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:1|confirmed',
             'password_confirmation' => 'required|same:password',
         ]);
         if ($validator->fails()) {
@@ -35,18 +35,18 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $imagePath = null;
+
         if ($request->hasFile('profile')) {
-            $imagePath = $request->file('profile')->store('profiles', 'public');
+            $avatar = Storage::disk('public')->put('/', $request->file('profile'));
         }
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'profile_picture' => $imagePath,
+            'profile_picture' => $avatar ??= null,
         ]);
 
-        return redirect()->route('login')->with('success', 'User created successfully.');
+        return redirect()->route('login')->with('success', 'User has been registered successfully.');
     }
 
     public function LoginPage()
@@ -114,7 +114,8 @@ class UserController extends Controller
             if ($user->profile_picture) {
                 Storage::delete($user->profile_picture);
             }
-            $user->profile_picture = $request->file('profile_picture')->store('profiles', 'public');
+            $image = Storage::disk('public')->put('/', $request->file('profile_picture'));
+            $user->profile_picture = $image;
         }
         if (! empty($validatedData['password'])) {
             $user->password = Hash::make($validatedData['password']);

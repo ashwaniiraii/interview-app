@@ -15,6 +15,12 @@
 
             <form action="{{ route('loginCheck') }}" method="POST" class="mt-8 space-y-4">
                 @csrf
+                @if (session('success'))
+                    <div
+                        class="bg-[#dcfce7] text-center text-sm border border-[#15803d] text-[#15803d] px-2 py-1 rounded relative mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 @error('failed')
                     <div class="bg-red-100 border border-red-400 text-red-700 px-2 py-2 rounded relative mb-4" role="alert">
                         <strong class="font-bold text-sm">Error!</strong>
