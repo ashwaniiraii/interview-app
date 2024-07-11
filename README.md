@@ -71,14 +71,10 @@ Security and ease of access are paramount in today's digital age. Interview-App 
     php artisan serve
     ```
 
-10. Usage:
-    ```sh
-   step-1 register new user step-2 login
-    ```
-
 ## Usage
 
-Provide instructions on how to use your project.
+1. First, register.
+2. Then, log in.
 
 ## Contributing
 
