@@ -55,6 +55,12 @@
                                         <p class="text-gray-600">{{ auth()->user()->email }}</p>
                                     </div>
                                 </div>
+                                <div class="py-4">
+                                    <div class="flex justify-between items-center">
+                                        <p class="text-gray-600">Department</p>
+                                        <p class="text-gray-600">{{ auth()->user()->department }}</p>
+                                    </div>
+                                </div>
                                 <!--... -->
                             </div>
                         </div>
