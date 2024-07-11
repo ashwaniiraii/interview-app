@@ -15,7 +15,7 @@ Security and ease of access are paramount in today's digital age. Interview-App 
 
 ### **Getting Started**
 ## Project-Name
-(https://github.com/ashwaniiraii/interview-app.git)(https://github.com/ashwaniiraii/interview-app.git)
+[(https://github.com/ashwaniiraii/interview-app.git)(https://github.com/ashwaniiraii/interview-app.git)]
 
 ## Requirements
 
