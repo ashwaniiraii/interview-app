@@ -14,7 +14,7 @@ We understand the importance of personalization and user control. With Interview
 Security and ease of access are paramount in today's digital age. Interview-App features a custom authentication system that allows you to securely log in and log out of your account. Our authentication process is designed to protect your personal information while providing a seamless login experience. Whether you're accessing the app from your computer or mobile device, you can trust that your data is secure.
 
 ### **Getting Started**
-# Project Name
+# interview-app
 
 [![Build Status](https://travis-ci.org/username/repository.svg?branch=master)](https://travis-ci.org/username/repository)
 
