@@ -16,7 +16,7 @@ Security and ease of access are paramount in today's digital age. Interview-App 
 ### **Getting Started**
 ## Project-Name
 
-[![Build Status](https://travis-ci.org/username/repository.svg?branch=master)](https://travis-ci.org/username/repository)
+[[![Build Status](https://travis-ci.org/username/repository.svg?branch=master)](https://travis-ci.org/username/repository)](https://github.com/ashwaniiraii/interview-app.git)
 
 ## Requirements
 
@@ -27,7 +27,7 @@ Security and ease of access are paramount in today's digital age. Interview-App 
 
 1. Clone the repository:
     ```sh
-    [git clone https://github.com/username/repository.git](https://github.com/ashwaniiraii/interview-app.git)
+    (https://github.com/ashwaniiraii/interview-app.git)
     ```
 
 2. Navigate to the project directory:
