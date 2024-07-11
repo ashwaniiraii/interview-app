@@ -22,7 +22,7 @@ Security and ease of access are paramount in today's digital age. Interview-App 
 
 - **Laravel**: 10.*
 - **PHP**: >= 8.1
-
+- **TailwindCss**
 ## Installation
 
 1. Clone the repository:
