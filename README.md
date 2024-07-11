@@ -1,5 +1,5 @@
 ## **Interview-App**
-We are excited to introduce you to our latest project, the **Interview-App**. This innovative application is designed to enhance your experience by integrating powerful search functionalities and robust user profile management. Below, we provide an overview of the key features that make Interview-App a must-have tool for your needs.
+We are excited to introduce you to my latest project, the **Interview-App**. This innovative application is designed to enhance your experience by integrating powerful search functionalities and robust user profile management. Below, we provide an overview of the key features that make Interview-App a must-have tool for your needs.
 
 ### **Pixabay Image Search Integration**
 Our app leverages the extensive image library of Pixabay to provide you with high-quality images for any search query. Whether you need images for presentations, articles, or personal projects, simply enter your search term, and our app will fetch relevant images from Pixabay's vast collection. This feature ensures that you always have access to visually appealing and professional images at your fingertips.
